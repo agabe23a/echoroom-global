@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Point this to your running FastAPI server
-const API_URL = 'http://localhost:5005/api';
+const API_URL = 'https://echoroom-global.onrender.com',
 
 const api = axios.create({
     baseURL: API_URL,
