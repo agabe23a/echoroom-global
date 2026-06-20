@@ -2,7 +2,6 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.database import connect_to_mongo, close_mongo_connection
-from app.api import auth
 from app.api import auth, feed
 
 # Define what happens when the server starts and stops
@@ -29,7 +28,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(auth.router, prefix="/api/auth", tags=["Authentication"])
+# Connect the routers (Separation of Concerns)
 app.include_router(auth.router, prefix="/api/auth", tags=["Authentication"])
 app.include_router(feed.router, prefix="/api/posts", tags=["Feed & Interaction"])
 

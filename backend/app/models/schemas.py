@@ -59,3 +59,7 @@ class PostResponse(BaseModel):
 
     # This config tells Pydantic to allow populating the 'id' field using MongoDB's '_id'
     model_config = ConfigDict(populate_by_name=True, arbitrary_types_allowed=True)
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str    
